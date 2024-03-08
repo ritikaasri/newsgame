@@ -2,7 +2,7 @@ name: Generate Keywords V0.1a
 
 on:
   schedule:
-    - cron: '23 7 * * *'
+    - cron: '02 8 * * *'
   workflow_dispatch: 
 
 env:
