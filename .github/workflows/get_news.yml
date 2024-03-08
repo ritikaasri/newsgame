@@ -2,8 +2,11 @@ name: Get News V0.1a
 
 on:
   schedule:
-    - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch: 
+
+env:
+  TZ: "Europe/London"
 
 jobs:
   build:
