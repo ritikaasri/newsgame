@@ -40,7 +40,7 @@ csv_filename = 'main.csv'
 
 def write_game_articles_to_csv(game_articles, csv_filename):
     with open(csv_filename, 'w', newline='') as csvfile:
-        column_names = ['group_id', 'title', 'published_at', 'url_to_image', 'url', 'keywords']
+        column_names = ['group_id', 'title', 'published_at', 'url', 'keywords']
         writer = csv.DictWriter(csvfile, fieldnames=column_names)
 
         writer.writeheader()
@@ -51,7 +51,6 @@ def write_game_articles_to_csv(game_articles, csv_filename):
                 'group_id': group_ids[i],
                 'title': article['title'],
                 'published_at': article['publishedAt'],
-                'url_to_image': article.get('urlToImage'),
                 'url': article['url']
             })
     
