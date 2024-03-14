@@ -7,12 +7,33 @@
 }
 
 .word {
-    padding: 10px;
-    background-color: #ddd;
-    border-radius: 5px;
+    width: calc(25% - 10px); /* for making a group of 4 tiles */ 
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: #f2ebeb;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* for rounded corners to the tiles */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* for shadow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* transition for hover effect */
 }
 
 #groups {
     margin-top: 20px;
+}
+
+.lives-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 90px;
+    margin-bottom: 20px;
+}
+.lives-container i {
+    font-size: 20px; /* Adjust size as needed */
+    color: red; /* Adjust color as needed */
+    margin-right: 5px; /* Adjust margin between icons */
 }

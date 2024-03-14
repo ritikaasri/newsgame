@@ -6,16 +6,25 @@
     <title>What's News?</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div id="game">
         <h2>Find the 4 connected words or phrases from the same news article.</h2>
+        </div>
+        <div class="lives-container">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i>
+        </div>
         <div id="identified-groups"></div>
         <div id="words-container">  
         </div>
         <div id="result"></div>
         <button id="submit">Submit Guess</button>
+        <div><p>How to play the game...</p></div>
     </div>
-    <script src="game.js"></script>
+    <script src="game_with_lives.js"></script>
 </body>
 </html>

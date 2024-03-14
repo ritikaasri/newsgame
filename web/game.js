@@ -2,7 +2,7 @@ let gameDict = [];
 
 // Fetch CSV and parse to array
 
-const filePath = 'data/main.csv';
+const filePath = "data/main.csv";
 
 function fetchAndParseCSV() {
   fetch(filePath)
@@ -28,15 +28,15 @@ function fetchAndParseCSV() {
 
 fetchAndParseCSV(filePath);
 
-
 let correctGroups = 0;
 let identifiedGroups = [];
+let totalLives = 4;
 
 function startGame() {
     const container = document.getElementById("words-container");
     container.innerHTML = ""; // Clear previous words
 
-    // Take keywords from array
+    // Take gamewords from gameDict
     let gameWords = [];
     gameDict.forEach(group => {
         group.keywords.forEach(keyword => {
@@ -92,13 +92,17 @@ function selectWord(word, element) {
 
 document.getElementById("submit").addEventListener("click", function() {
     var isSameGroup = checkAnswer(selectedWords);
+    // Not enough words selected
     if (selectedWords.length < 4) {
         document.getElementById("result").textContent = "You need to select more words!";
         return;
     }
-    if (isSameGroup === false) {
+    // Wrong answer
+    if (isSameGroup === false) { 
         document.getElementById("result").textContent = "Wrong answer - try again!";
+        deductLife();
     } else {
+        // Correct answer
         var groupIdentified = selectedWords[0].group;
         if (!identifiedGroups.includes(groupIdentified)) {
             identifiedGroups.push(groupIdentified);
@@ -106,7 +110,8 @@ document.getElementById("submit").addEventListener("click", function() {
             moveToTop(groupIdentified);
         }
         document.getElementById("result").textContent = "Correct! Read the article or carry on playing.";
-        if (correctGroups === 3) {
+        // Completed game
+        if (correctGroups === 4) {
             document.getElementById("result").textContent = "You have completed the news!";
         }
         selectedWords = [];
@@ -125,6 +130,32 @@ function checkAnswer(selectedWords) {
     }
     return true;
 }
+
+// Function to deduct a life
+function deductLife() {
+    totalLives--;
+
+    // Update the UI to show remaining lives
+    let livesContainer = document.querySelector(".lives-container");
+    livesContainer.innerHTML = ""; // Clear previous lives
+
+    for (let i = 0; i < totalLives; i++) {
+        let lifeIcon = document.createElement("i");
+        lifeIcon.classList.add("fas", "fa-heart");
+        livesContainer.appendChild(lifeIcon);
+    }
+
+    // Check if game over
+    if (totalLives === 0) {
+        gameOver();
+    }
+}
+
+// Function to handle game over
+function gameOver() {
+    document.getElementById("result").textContent = "Game over! Come back for a new puzzle tomorrow.";
+}
+
 
 // Move correct answers to top
 
