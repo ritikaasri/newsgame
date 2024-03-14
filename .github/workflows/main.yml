@@ -1,70 +1,70 @@
- name: Get News & Generate Keywords V0.1
+name: Get News & Generate Keywords V0.1
 
 on:
-  schedule:
-    - cron: '1 6 * * *'
-  workflow_dispatch: 
+schedule:
+  - cron: '1 6 * * *'
+workflow_dispatch: 
 
 env:
-  TZ: "Europe/London"
+TZ: "Europe/London"
 
 jobs:
-  updatecsv:
-    runs-on: ubuntu-latest
+updatecsv:
+  runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
+  steps:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+
+  - name: Set up Python
+    uses: actions/setup-python@v5
+    with:
+      python-version: 3.12
+
+  - name: Install dependencies
+    run: |
+      python -m pip install --upgrade pip
+      pip install pandas newsapi openai
+      
+  - name: Run NEWSAPI Python script
+    env:
+      NEWSAPI_API_KEY: ${{ secrets.NEWSAPI_API_KEY }}
+    run: |
+      python get_news.py
+      
+  - name: Commit and push changes
+    run: |
+      git config --global user.email "leungw3@cardiff.ac.uk"
+      git config --global user.name "LLeung"
+      git add .
+      git commit -m "Update main.csv"
+      git push
+  - name: Run OPENAI Python script
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+    run: |
+      python generate_keywords.py
+      
+  - name: Commit and push changes
+    run: |
+      git config --global user.email "leungw3@cardiff.ac.uk"
+      git config --global user.name "LLeung"
+      git add .
+      git commit -m "Update main.csv"
+      git push
+      
+  deploy:
+  needs: updatecsv
+  runs-on: ubuntu-latest
+  
+  steps:
+    - name: Checkout
       uses: actions/checkout@v4
-
-    - name: Set up Python
-      uses: actions/setup-python@v5
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        python-version: 3.12
-
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install pandas newsapi openai
-        
-    - name: Run NEWSAPI Python script
-      env:
-        NEWSAPI_API_KEY: ${{ secrets.NEWSAPI_API_KEY }}
-      run: |
-        python get_news.py
-        
-    - name: Commit and push changes
-      run: |
-        git config --global user.email "leungw3@cardiff.ac.uk"
-        git config --global user.name "LLeung"
-        git add .
-        git commit -m "Update main.csv"
-        git push
-    - name: Run OPENAI Python script
-      env:
-        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      run: |
-        python generate_keywords.py
-        
-    - name: Commit and push changes
-      run: |
-        git config --global user.email "leungw3@cardiff.ac.uk"
-        git config --global user.name "LLeung"
-        git add .
-        git commit -m "Update main.csv"
-        git push
-        
-   deploy:
-    needs: updatecsv
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: '.'
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        # Upload entire repository
+        path: '.'
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
