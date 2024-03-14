@@ -3,7 +3,7 @@ import openai
 import os
     
 openai.api_key = os.getenv('OPENAI_API_KEY')
-df = pd.read_csv('main.csv')
+df = pd.read_csv('data/main.csv')
 keywords = []
 for index, row in df.iterrows():
     title = row['title']
@@ -17,5 +17,5 @@ for index, row in df.iterrows():
     keywords.append(prompt_result)
 
 df['keywords'] = keywords        
-df.to_csv('main.csv', index=False)
+df.to_csv('data/main.csv', index=False)
 print(keywords)
