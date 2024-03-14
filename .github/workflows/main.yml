@@ -1,4 +1,4 @@
-name: Get News & Generate Keywords V0.1
+ name: Get News & Generate Keywords V0.1
 
 on:
   schedule:
@@ -39,7 +39,6 @@ jobs:
         git add .
         git commit -m "Update main.csv"
         git push
-
     - name: Run OPENAI Python script
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -53,3 +52,19 @@ jobs:
         git add .
         git commit -m "Update main.csv"
         git push
+        
+   deploy:
+    needs: updatecsv
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: '.'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
