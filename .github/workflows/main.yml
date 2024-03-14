@@ -42,7 +42,7 @@ jobs:
         git config --global user.email "leungw3@cardiff.ac.uk"
         git config --global user.name "LLeung"
         git add .
-        git commit -m "Update main.csv"
+        git commit -m "Update news main.csv"
         git push
     - name: Run OPENAI Python script
       env:
@@ -55,7 +55,7 @@ jobs:
         git config --global user.email "leungw3@cardiff.ac.uk"
         git config --global user.name "LLeung"
         git add .
-        git commit -m "Update main.csv"
+        git commit -m "Update keywords main.csv"
         git push
         
   deploy:
