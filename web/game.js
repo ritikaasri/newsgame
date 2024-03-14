@@ -180,10 +180,12 @@ function moveToTop(groupIdentified) {
         groupContainer.appendChild(wordElement);
     });
 
-    // Add group title below
-    var titleElement = document.createElement("div");
+    // Add group title and hyperlink below completed group
+    var titleElement = document.createElement("a");
     titleElement.classList.add("group-title");
     titleElement.textContent = groupData.title;
+    titleElement.href = groupData.title;
+    titleElement.target = "_blank";
     groupContainer.appendChild(titleElement)
 }
  
