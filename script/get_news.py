@@ -35,7 +35,7 @@ def get_news_headlines(domains='cnn.com, foxnews.com, dailymail.co.uk, theguardi
 
 game_articles = get_news_headlines()
 #print(game_articles)
-csv_filename = 'data/main.csv'
+csv_filename = 'web/data/main.csv'
 
 
 def write_game_articles_to_csv(game_articles, csv_filename):
