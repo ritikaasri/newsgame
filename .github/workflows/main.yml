@@ -68,6 +68,3 @@ jobs:
       - name: Copy updated CSV
         run: |
           cp web/data/main.csv ./web
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
