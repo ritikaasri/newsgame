@@ -1,3 +1,4 @@
+// Gamedata stored here
 let gameDict = [];
 
 // Fetch CSV and parse to array
@@ -32,6 +33,7 @@ let correctGroups = 0;
 let identifiedGroups = [];
 let totalLives = 4;
 
+// Function to start game
 function startGame() {
     const container = document.getElementById("words-container");
     container.innerHTML = ""; // Clear previous words
@@ -46,7 +48,6 @@ function startGame() {
 
     // Shuffle the gamewords
     gameWords = shuffleArray(gameWords);
-    console.log(gameWords);
     
     // Render the gamewords
     gameWords.forEach(item => {
@@ -84,7 +85,6 @@ function selectWord(word, element) {
     } else if (selectedWords.length < 4) {
         selectedWords.push(word);
         element.style.backgroundColor = "#aaddaa";
-        console.log("Selected Group:", selectedWords);
     }
 }
 
