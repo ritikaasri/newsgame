@@ -8,6 +8,9 @@ on:
 env:
   TZ: "Europe/London"
 
+permissions:
+  id-token: write
+
 jobs:
   updatecsv:
     runs-on: ubuntu-latest
