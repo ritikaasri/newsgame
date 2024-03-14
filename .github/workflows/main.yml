@@ -67,4 +67,4 @@ jobs:
         uses: actions/checkout@v4
       - name: Use updated CSV for deployment
         run: |
-          cp data/main.csv ./web
+          cp web/data/main.csv ./web
