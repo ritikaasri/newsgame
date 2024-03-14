@@ -2,7 +2,7 @@ let gameDict = [];
 
 // Fetch CSV and parse to array
 
-const filePath = "./main.csv";
+const filePath = "main.csv";
 
 function fetchAndParseCSV() {
   fetch(filePath)
