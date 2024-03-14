@@ -184,7 +184,7 @@ function moveToTop(groupIdentified) {
     var titleElement = document.createElement("a");
     titleElement.classList.add("group-title");
     titleElement.textContent = groupData.title;
-    titleElement.href = groupData.title;
+    titleElement.href = groupData.url;
     titleElement.target = "_blank";
     groupContainer.appendChild(titleElement)
 }
