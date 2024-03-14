@@ -65,14 +65,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          # Upload entire repository
-          path: './web'
-      - name: Get updated csv
+      - name: Use updated CSV for deployment
         run: |
-          cp main.csv web/data/main.csv
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          cp -r * ./web
