@@ -35,7 +35,7 @@ jobs:
       env:
         NEWSAPI_API_KEY: ${{ secrets.NEWSAPI_API_KEY }}
       run: |
-        python get_news.py
+        python script/get_news.py
         
     - name: Commit and push changes
       run: |
@@ -48,7 +48,7 @@ jobs:
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
-        python generate_keywords.py
+        python script/generate_keywords.py
         
     - name: Commit and push changes
       run: |
@@ -69,7 +69,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: './web'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
