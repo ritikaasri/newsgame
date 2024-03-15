@@ -66,6 +66,10 @@ jobs:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         python script/generate_keywords.py
+
+    - name: Pull repository
+      run: |
+        git pull origin main
         
     - name: Commit and push changes
       run: |
@@ -74,10 +78,6 @@ jobs:
         git add .
         git commit -m "Update keywords main.csv"
         git push
-
-    - name: Pull repository
-      run: |
-        git pull origin main
         
   deploy:
     needs: getkeywords
