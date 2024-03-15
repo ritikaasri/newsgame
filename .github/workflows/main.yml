@@ -65,9 +65,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Copy updated CSV
-        run: |
-          cp web/data/main.csv ./web
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
