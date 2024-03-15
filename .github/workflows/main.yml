@@ -44,6 +44,11 @@ jobs:
         git add .
         git commit -m "Update news main.csv"
         git push
+  
+  getkeywords:
+    needs: updatecsv
+    runs-on: ubuntu-latest
+    steps:
     - name: Run OPENAI Python script
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -59,7 +64,7 @@ jobs:
         git push
         
   deploy:
-    needs: updatecsv
+    needs: getkeywords
     runs-on: ubuntu-latest
     
     steps:
