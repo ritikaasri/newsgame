@@ -77,14 +77,6 @@ jobs:
         run: |
           git log
           git diff
-
-      - name: Push changes
-        run: |
-          git config --global user.email "leungw3@cardiff.ac.uk"
-          git config --global user.name "LLeung"
-          git add .
-          git commit -m "Update news and keywords"
-          git push
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
