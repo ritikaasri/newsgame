@@ -90,7 +90,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './web'
+          path: 'web/data/'
           
       - name: Deploy to GitHub Pages
         id: deployment
