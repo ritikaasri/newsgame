@@ -81,7 +81,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: get-updated-news-keywords
+          name: updated-news-keywords
           path: './web'
         
       - name: Upload artifact to page
