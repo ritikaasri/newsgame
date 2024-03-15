@@ -36,10 +36,6 @@ jobs:
         NEWSAPI_API_KEY: ${{ secrets.NEWSAPI_API_KEY }}
       run: |
         python script/get_news.py
-
-    - name: Pull repository
-      run: |
-        git pull origin main
         
     - name: Commit and push changes
       run: |
@@ -70,6 +66,10 @@ jobs:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       run: |
         python script/generate_keywords.py
+
+    - name: Pull repository
+      run: |
+        git pull origin main
         
     - name: Commit and push changes
       run: |
