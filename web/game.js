@@ -48,6 +48,7 @@ function startGame() {
 
     // Shuffle the gamewords
     gameWords = shuffleArray(gameWords);
+    console.log(gameWords);
     
     // Render the gamewords
     gameWords.forEach(item => {
@@ -85,6 +86,7 @@ function selectWord(word, element) {
     } else if (selectedWords.length < 4) {
         selectedWords.push(word);
         element.style.backgroundColor = "#aaddaa";
+        console.log("Selected Group:", selectedWords);
     }
 }
 
