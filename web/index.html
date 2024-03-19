@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>What's News?</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <!--CSS file-->
     <link rel="stylesheet" href="style.css">
+    <!--Font Awesome Icons (For lives)-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div id="game">
-        <h2>Find the 4 connected words or phrases from the same news article.</h2>
-        </div>
+        <!--Game Content-->
+        <h1>WHAT'S NEWS</h1>
+        <p>Match four keywords to get a news article.</p>
+        <h2>How to Play</h2>
+        <p>Find groups of four words that are part of a news headline.
+        <ul class="instructions">
+            <li>Select four tiles and tap 'Submit' to check if your guess is correct.</li>
+            <li>Find the groups without making 4 mistakes!</li>
+        </ul>
+        <!--Lives Container-->
         <div class="lives-container">
             <i class="fas fa-heart"></i>
             <i class="fas fa-heart"></i>
             <i class="fas fa-heart"></i>
             <i class="fas fa-heart"></i>
         </div>
+        <!--Main game Logic-->
         <div id="identified-groups"></div>
-        <div id="words-container">  
-        </div>
+        <div id="words-container"></div>
         <div id="result"></div>
-        <button id="submit">Submit Guess</button>
-        <div><p>How to play the game...</p></div>
+        <button id="submit">Submit Your Guess</button>
     </div>
+    <!--JS file-->
     <script src="game.js"></script>
 </body>
 </html>
