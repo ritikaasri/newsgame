@@ -1,6 +1,6 @@
 #game {
     padding: 30px;
-    margin: 0px;
+    margin: 0 auto;
     text-align: center;
 }
 
@@ -12,7 +12,6 @@
 
 body {
     font-family: 'Arial', sans-serif; /* Use your chosen font-family here */
-    padding-left: 50px;
     
 }
 
