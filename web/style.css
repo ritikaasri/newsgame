@@ -1,14 +1,48 @@
+#game {
+    padding: 30px;
+    margin: 0px;
+    text-align: center;
+}
+
 #words-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
-    margin: 20px 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Use your chosen font-family here */
+    padding-left: 50px;
+    
+}
+
+h1 {
+    text-align: center; /* Center the heading */
+    color: #d52323; /* Set the color of the heading */
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.intro {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center; /* Center the heading */
+    color: #d52323; /* Set the color of the heading */
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.instructions {
+    text-align: left; /* Align bullet points to the left */
+    margin-bottom: 20px;
 }
 
 .word {
     width: calc(25% - 10px); /* for making a group of 4 tiles */ 
-    height: 100px;
+    height: 50px;
     margin-bottom: 20px;
     background-color: #f2ebeb;
     border: 1px solid #ccc;
@@ -19,21 +53,57 @@
     align-items: center;
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* transition for hover effect */
+    overflow: hidden; /* Ensures that the content inside the tile doesn't overflow */
+    white-space: nowrap; /* Prevents wrapping of text */
+    text-overflow: ellipsis; /* Adds ellipsis (...) when text overflows */
 }
 
-#groups {
-    margin-top: 20px;
+#identified-groups {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.group-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 .lives-container {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
-    padding-left: 90px;
     margin-bottom: 20px;
+    height: 50px;
+    width: 140px;
 }
 .lives-container i {
-    font-size: 20px; /* Adjust size as needed */
-    color: red; /* Adjust color as needed */
-    margin-right: 5px; /* Adjust margin between icons */
+    font-size: 25px; /* Adjust size as needed */
+    color: #dd1313; /* Adjust color as needed */
+    margin-right: 8px; /* Adjust margin between icons */
+
+}
+
+#result {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #dd1313; /* Set button background color */
+    color: #fff; /* Set button text color */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Add transition for smoother hover effect */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    font-size: 16px; /* Set font size */
+}
+
+button:hover {
+    background-color: #c32708; /* Change button color on hover */
 }
