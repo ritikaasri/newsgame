@@ -55,6 +55,7 @@ h2 {
     overflow: hidden; /* Ensures that the content inside the tile doesn't overflow */
     white-space: nowrap; /* Prevents wrapping of text */
     text-overflow: ellipsis; /* Adds ellipsis (...) when text overflows */
+    font-size: 13px;
 }
 
 #identified-groups {
