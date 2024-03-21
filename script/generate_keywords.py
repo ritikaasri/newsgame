@@ -7,7 +7,7 @@ df = pd.read_csv('web/data/main.csv')
 keywords = []
 for index, row in df.iterrows():
     title = row['title']
-    prompt = f"Extract 4 separate words which are most important in \"{title}\""
+    prompt = f"Extract 4 separate words which are most important in \"{title}\". Format: without punctuation, sepatate by comma."
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
