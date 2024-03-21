@@ -7,7 +7,7 @@ df = pd.read_csv('web/data/main.csv')
 keywords = []
 for index, row in df.iterrows():
     title = row['title']
-    prompt = f"Extract 4 separate single words which are most important from each given sentance which are not small words in \"{title}\”. Make first letter upper case, and no punctuation. "
+    prompt = f"Extract 4 separate words which are most important in the sentence and not small words in \"{title}\""
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
