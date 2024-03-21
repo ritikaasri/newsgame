@@ -10,8 +10,8 @@ api_key = os.getenv('NEWSAPI_API_KEY')
 
 def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailymail.co.uk, theguardian.com, foxnews.com, finance.yahoo.com, indiatimes.com, people.com, timesofindia.com, usatoday.com, thesun.co.uk, the-sun.com, nypost.com, hindustantimes.com, washingtonpost.com, forbes.com, ndtv.com, news18.com, cnbc.com, businessinsider.com, independent.co.uk, apnews.com', 
                       language='en', 
-                      from_param=(datetime.now()- timedelta(hours = 24)).strftime('%Y-%m-%d'+'T21:00:00'), 
-                      to_param=datetime.now().strftime('%Y-%m-%d'+'T00:00:00'),
+                      from_param=(datetime.now()- timedelta(hours = 24)).strftime('%Y-%m-%d'+'T00:00:00'), 
+                      to_param=datetime.now().strftime('%Y-%m-%d'+'T00:06:59'),
                       sort_by='popularity',
                       page_size=100,
                       api_key=api_key
