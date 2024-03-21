@@ -12,7 +12,7 @@ def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailym
                       language='en', 
                       from_param=(datetime.now()- timedelta(hours = 24)).strftime('%Y-%m-%d'+'T00:00:00'), 
                       to_param=datetime.now().strftime('%Y-%m-%d'+'T00:06:59'),
-                      sort_by='popularity',
+                      sort_by='publishAt',
                       page_size=100,
                       api_key=api_key
                       ):
@@ -22,8 +22,7 @@ def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailym
     
     if response.status_code == 200:
         data_return = response.json()
-        # Reverse from least popular to most popular among the {page_size} articles
-        data_return['articles'] = list(reversed(data_return['articles']))
+        data_return['articles'] = list(data_return['articles'])
 
         total_results = data_return.get('totalResults', 0)
         print(f"Total results: {total_results}")
