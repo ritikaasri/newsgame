@@ -31,5 +31,9 @@ df['timestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 # Save the new lines to history.csv
 history_directory = 'history/history.csv'
-history_df = pd.read_csv(history_directory)
-history_df = pd.concat([history_df, df[['group_id', 'title', 'published_at', 'url', 'keywords', 'timestamp']]])
+if os.path.exists(history_directory):
+    history_df = pd.read_csv(history_directory)
+    history_df = pd.concat([history_df, df[[ 'group_id', 'title', 'published_at', 'url', 'keywords', 'timestamp']]])
+else:
+    history_df = df[[ 'group_id', 'title', 'published_at', 'url', 'keywords', 'timestamp']]
+history_df.to_csv(history_directory, index=False)
