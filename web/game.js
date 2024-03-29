@@ -99,8 +99,8 @@ document.getElementById("submit").addEventListener("click", function() {
     }
     // Wrong answer
     if (isSameGroup === false) { 
-        document.getElementById("result").textContent = "Wrong answer - try again!";
         deductLife();
+        giveHint();
     } else {
         // Correct answer
         var groupIdentified = selectedWords[0].group;
@@ -129,6 +129,50 @@ function checkAnswer(selectedWords) {
         }
     }
     return true;
+}
+
+// Function to give hints
+function giveHint() {
+  const counts = {};
+
+    // Loop over selectedWords
+    for (let i = 0; i < selectedWords.length; i++) {
+      let item = selectedWords[i];
+      let value = item.group;
+
+      // Increment or initialise count
+      if (counts[value]) {
+          counts[value]++;
+      }
+      else {
+          counts[value] = 1;
+      }
+    }
+    let maxCount = 0;
+    let mostSelected = null;
+
+    // Loop over counts
+    for (let value in counts) {
+      let count = counts[value];
+      if (count > maxCount) {
+          maxCount = count;
+          mostSelected = value;
+      }
+    }
+
+  // Give hints according to maxCount and totalLives
+  if (maxCount === 2 && totalLives > 0) {
+      document.getElementById("hint").textContent = "You are only 2 words away from a correct answer!";
+  }
+  else if (maxCount === 3 && totalLives > 0) {
+          document.getElementById("hint").textContent = "You are only 1 word away from a correct answer!";
+  }
+  else if (maxCount < 2 && totalLives > 0) {
+          document.getElementById("hint").textContent = "Incorrect answer - try again!";
+  }
+   else {
+        document.getElementById("hint").textContent = "";
+    }
 }
 
 // Function to deduct a life
