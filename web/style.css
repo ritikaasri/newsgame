@@ -54,7 +54,7 @@ h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* transition for hover effect */
     overflow: hidden; /* Ensures that the content inside the tile doesn't overflow */
     white-space: nowrap; /* Prevents wrapping of text */
-    text-overflow: ellipsis; /* Adds ellipsis (...) when text overflows */
+    word-wrap: break-word;
     font-size: 13px;
 }
 
