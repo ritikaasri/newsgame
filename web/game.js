@@ -191,15 +191,21 @@ function deductLife() {
 
     // Check if game over
     if (totalLives === 0) {
-        gameOver();
+        endGame();
     }
 }
 
-// Function to handle game over
-function gameOver() {
-    document.getElementById("result").textContent = "Game over! Come back for a new puzzle tomorrow.";
-}
+// Function for game over
+function endGame() {
+  document.getElementByID("endgame").textContent = "You ran out of lives! What were today's headlines?";
+  document.getElementById("words-container").innerHTML = "";
 
+  // Loop over gameDict and call moveToTop to show correct answers
+  for (let i = 0; i < gameDict.length; i++) {
+    let group = gameDict[i];
+    moveToTop(group.group_id);
+  }
+}
 
 // Move correct answers to top
 
