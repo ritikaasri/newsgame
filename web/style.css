@@ -107,3 +107,9 @@ button {
 button:hover {
     background-color: #c32708; /* Change button color on hover */
 }
+
+#about {
+    width: 80%;
+    margin: 0 auto; 
+    text-align: center;
+  }
