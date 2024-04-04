@@ -112,7 +112,7 @@ document.getElementById("submit").addEventListener("click", function() {
         document.getElementById("result").textContent = "Correct! Read the article or carry on playing.";
         // Completed game
         if (correctGroups === 4) {
-            document.getElementById("result").textContent = "You have completed the news!";
+            document.getElementById("result").textContent = "Congratulations - you made the headlines!";
         }
         selectedWords = [];
         startGame();
