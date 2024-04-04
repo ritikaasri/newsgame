@@ -197,7 +197,7 @@ function deductLife() {
 
 // Function for game over
 function endGame() {
-  document.getElementById("endgame").textContent = "You ran out of lives! What were today's headlines?";
+  document.getElementById("endgame").textContent = "Game over! You can still read the articles below:";
   document.getElementById("words-container").innerHTML = "";
 
   // Loop over gameDict and call moveToTop to show correct answers
