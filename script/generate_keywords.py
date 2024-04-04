@@ -19,6 +19,9 @@ for index, row in df.iterrows():
         max_tokens=20
     )
     prompt_result = response.choices[0].message.content.strip()
+    prompt_result = prompt_result.split(",")
+    prompt_result = list(map(lambda x:x.title(),prompt_result))
+    prompt_result = ",".join(prompt_result)
     keywords.append(prompt_result)
 
 # Update main.csv with keywords
