@@ -122,6 +122,9 @@ document.getElementById("submit").addEventListener("click", function() {
 // Check answer function
 
 function checkAnswer(selectedWords) {
+  // Clear "hint" message when player submits new guess
+  document.getElementById("hint").textContent = "";
+  
     const firstGroup = selectedWords[0].group;
     for (let i = 1; i < selectedWords.length; i++) {
         if (selectedWords[i].group !== firstGroup) {
