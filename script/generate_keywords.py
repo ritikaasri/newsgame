@@ -6,7 +6,7 @@ from datetime import datetime
 # Set up OpenAI API key  
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-df = pd.read_csv('data/main.csv')
+df = pd.read_csv('web/data/main.csv')
 
 # Generate keywords and store to keywords
 keywords = []
@@ -27,7 +27,7 @@ for index, row in df.iterrows():
 
 # Update main.csv with keywords
 df['keywords'] = keywords        
-df.to_csv('data/main.csv', index=False)
+df.to_csv('web/data/main.csv', index=False)
 print(keywords)
 
 # Add timestamp column to main.csv for tracing use
