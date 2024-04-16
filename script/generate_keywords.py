@@ -6,7 +6,7 @@ from datetime import datetime
 # Set up OpenAI API key  
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
-df = pd.read_csv('web/data/main.csv')
+df = pd.read_csv('data/main.csv')
 
 # Generate keywords and store to keywords
 keywords = []
