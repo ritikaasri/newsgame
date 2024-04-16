@@ -27,7 +27,7 @@ for index, row in df.iterrows():
 
 # Update main.csv with keywords
 df['keywords'] = keywords        
-df.to_csv('web/data/main.csv', index=False)
+df.to_csv('data/main.csv', index=False)
 print(keywords)
 
 # Add timestamp column to main.csv for tracing use
