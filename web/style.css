@@ -15,11 +15,33 @@ body {
     
 }
 
-h1 {
-    text-align: center; /* Center the heading */
-    color: #dd1313; /* Set the color of the heading */
-    font-size: 50px;
-    margin-bottom: 20px;
+#ransomizer {
+  font-size:3em;
+  line-height: normal;
+  word-spacing:0.5em;
+}
+
+#ransomizer div {
+  display:inline-block;
+}
+
+#ransomizer .rww {
+  white-space: pre;
+  display:inline;
+  margin-left: .2em;
+  margin-right: .2em;
+}
+
+#ransomizer .rr {
+  -ms-transform: rotate(1.5deg);
+  -webkit-transform: rotate(1.5deg);
+  transform: rotate(1.5deg);
+}
+
+#ransomizer .rl {
+  -ms-transform: rotate(-1.5deg);
+  -webkit-transform: rotate(-1.5deg);
+  transform: rotate(-1.5deg);
 }
 
 .intro {
