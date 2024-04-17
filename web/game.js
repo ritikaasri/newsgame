@@ -33,6 +33,18 @@ let correctGroups = 0;
 let identifiedGroups = [];
 let totalLives = 4;
 
+// Function to adjust font size for larger keywords
+function adjustFontSize(element) {
+    const containerWidth = element.parentElement.clientWidth;
+    const fontSize = parseFloat(window.getComputedStyle(element).fontSize);
+
+    // Check if word overflows its container
+    while (element.scrollWidth > containerWidth) {
+        // Reduce font size until it fits
+        element.style.fontSize = (parseFloat(element.style.fontSize) - 1) + 'px';
+    }
+}
+
 // Function to start game
 function startGame() {
     const container = document.getElementById("words-container");
