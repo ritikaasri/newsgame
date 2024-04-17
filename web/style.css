@@ -79,6 +79,17 @@ h2 {
     word-wrap: break-word;
     font-size: 13px;
 }
+@media (max-width: 768px) {
+    .word {
+        width: calc(25% - 10px); /* Adjusted width for 4 tiles per row with reduced padding */
+        margin-bottom: 20px; /* Reduced margin for tighter spacing between tiles */
+    }
+}
+
+/* Adjust font size for larger keywords */
+.word.large {
+    font-size: 11px; /* Reduced font size for larger keywords */
+}
 
 #identified-groups {
     display: flex;
