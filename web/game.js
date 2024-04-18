@@ -60,9 +60,6 @@ function startGame() {
             }
             wordElement.onclick = () => selectWord({ word: item.word, group: item.group }, wordElement);
             container.appendChild(wordElement);
-
-          // Adjust font size for larger keywords
-            adjustFontSize(wordElement);
         }
     })
 }
