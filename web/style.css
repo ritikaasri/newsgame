@@ -88,7 +88,7 @@ h2 {
 
 /* Adjust font size for larger keywords */
 .word.large {
-    font-size: 11px; /* Reduced font size for larger keywords */
+    font-size: 6px; /* Reduced font size for larger keywords */
 }
 
 #identified-groups {
