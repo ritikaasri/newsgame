@@ -21,7 +21,7 @@ for index, row in df.iterrows():
     )
     prompt_result = response.choices[0].message.content.strip()
     prompt_result = prompt_result.split(",")
-    prompt_result = list(map(lambda x:x.title(),prompt_result))
+    prompt_result = list(map(lambda x:x.upper(),prompt_result))
     prompt_result = ",".join(prompt_result)
     keywords.append(prompt_result)
 
