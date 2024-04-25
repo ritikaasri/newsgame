@@ -48,25 +48,26 @@ function startGame() {
 
     // Shuffle the gamewords
     gameWords = shuffleArray(gameWords);
-
-    // Slice words too big for tile
-    gameWords.forEach(item => {
-        if (item.word.length > 7) {
-            item.word = item.word.slice(0, 7) + "-<br>" + item.word.slice(7);
-        }
-    })
-    
-    // Render the gamewords
+  
+ // Render the gamewords
     gameWords.forEach(item => {
         if (!identifiedGroups.includes(item.group)) {
             const wordElement = document.createElement("div");
             wordElement.classList.add("word");
+            if (item.word.length > 7) {
+                wordElement.innerHTML = item.word.slice(0, 7) + "-<br>" + item.word.slice(7);
+                wordElement.onclick = () => selectWord({ word: item.word, group: item.group }, wordElement);
+                container.appendChild(wordElement);
+            }
+            else {
             wordElement.innerHTML = item.word;
             wordElement.onclick = () => selectWord({ word: item.word, group: item.group }, wordElement);
             container.appendChild(wordElement);
+            }
         }
     })
 }
+
 // Shuffle array function
 function shuffleArray(array) {
     for (let i = array.length -1; i > 0; i--) {
@@ -210,6 +211,7 @@ function deductLife() {
 function endGame() {
   document.getElementById("endgame").textContent = "Game over! You can still read the articles below:";
   document.getElementById("words-container").innerHTML = "";
+  document.getElementById("identified-groups").innerHTML = "";
 
   // Loop over gameDict and call moveToTop to show correct answers
   for (let i = 0; i < gameDict.length; i++) {
@@ -238,6 +240,9 @@ function moveToTop(groupIdentified) {
         var wordElement = document.createElement("div");
         wordElement.classList.add("word");
         wordElement.textContent = keyword;
+        if (keyword.length > 7){
+            wordElement.innerHTML = keyword.slice(0, 7) + "-<br>" + keyword.slice(7);
+        }
         groupContainer.appendChild(wordElement);
     });
 
