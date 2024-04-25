@@ -48,6 +48,13 @@ function startGame() {
 
     // Shuffle the gamewords
     gameWords = shuffleArray(gameWords);
+
+    // Slice words too big for tile
+    gameWords.forEach(item => {
+        if (item.word.length > 7) {
+            item.word = item.word.slice(0, 7) + "-<br>" + item.word.slice(7);
+        }
+    })
     
     // Render the gamewords
     gameWords.forEach(item => {
@@ -55,9 +62,6 @@ function startGame() {
             const wordElement = document.createElement("div");
             wordElement.classList.add("word");
             wordElement.textContent = item.word;
-             if (item.word.length > 10) { // Example threshold: 10 characters
-                wordElement.classList.add("large");
-            }
             wordElement.onclick = () => selectWord({ word: item.word, group: item.group }, wordElement);
             container.appendChild(wordElement);
         }
