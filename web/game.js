@@ -61,7 +61,7 @@ function startGame() {
         if (!identifiedGroups.includes(item.group)) {
             const wordElement = document.createElement("div");
             wordElement.classList.add("word");
-            wordElement.textContent = item.word;
+            wordElement.innerHTML = item.word;
             wordElement.onclick = () => selectWord({ word: item.word, group: item.group }, wordElement);
             container.appendChild(wordElement);
         }
