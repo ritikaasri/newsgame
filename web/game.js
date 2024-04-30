@@ -57,6 +57,9 @@ function startGame() {
             if (item.word.length > 7 && item.word.length < 10) { // Example threshold: 10 characters
                 wordElement.classList.add("large");
             }
+            if (item.word.indexOf(" ") >= 0) {
+                wordElement.classList.add("large");
+            }
             if (item.word.length > 10) {
                 wordElement.innerHTML = item.word.slice(0, 7) + "-<br>" + item.word.slice(7);
                 wordElement.onclick = () => selectWord({ word: item.word, group: item.group }, wordElement);
