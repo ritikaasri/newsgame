@@ -37,7 +37,7 @@ def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailym
         print(type(clean_articles))
         
         # Select four random articles
-        four_random_articles = random.sample(clean_articles['articles'], 4)
+        four_random_articles = random.sample(clean_articles, 4)
 
         return four_random_articles
 
