@@ -27,8 +27,17 @@ def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailym
         total_results = data_return.get('totalResults', 0)
         print(f"Total results: {total_results}")
         
+        # Clean title feature
+        clean_articles = []
+        special_chars = '!@#$%^&*()_+{}[]|\\:;"\'<>,.?/~`'
+        for i in data_return['articles']:
+            title = i['title']
+            if not any(char in title for char in special_chars) and title.isascii():
+                clean_articles.append(i)
+        print(type(clean_articles))
+        
         # Select four random articles
-        four_random_articles = random.sample(data_return['articles'], 4)
+        four_random_articles = random.sample(clean_articles['articles'], 4)
 
         return four_random_articles
 
