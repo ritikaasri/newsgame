@@ -49,12 +49,15 @@ function startGame() {
     // Shuffle the gamewords
     gameWords = shuffleArray(gameWords);
   
- // Render the gamewords
+// Render the gamewords
     gameWords.forEach(item => {
         if (!identifiedGroups.includes(item.group)) {
             const wordElement = document.createElement("div");
             wordElement.classList.add("word");
-            if (item.word.length > 7) {
+            if (item.word.length > 7 && item.word.length < 10) { // Example threshold: 10 characters
+                wordElement.classList.add("large");
+            }
+            if (item.word.length > 10) {
                 wordElement.innerHTML = item.word.slice(0, 7) + "-<br>" + item.word.slice(7);
                 wordElement.onclick = () => selectWord({ word: item.word, group: item.group }, wordElement);
                 container.appendChild(wordElement);
