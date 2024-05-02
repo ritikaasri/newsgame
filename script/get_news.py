@@ -29,7 +29,7 @@ def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailym
         
         # Clean title feature
         clean_articles = []
-        special_chars = '!@#$%^&*()_+{}[]|\\:;"\'<>,.?/~`'
+        special_chars = '-!@#$%^&*()_+{}[]|\\:;"\'<>,.?/~`'
         for i in data_return['articles']:
             title = i['title']
             if not any(char in title for char in special_chars) and title.isascii():
