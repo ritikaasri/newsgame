@@ -13,8 +13,8 @@ keywords = []
 for index, row in df.iterrows():
     title = row['title']
     # prompt = f"Extract 4 separate single word which are most important in \"{title}\". Format: without punctuation, sepatate by comma. If keyword contains '-', take remove '-' in between."
-    # prompt = f"From each \"{title}\", extract only 4 separate single word which are most important to the content and not duplicate with keywords extracted from other title, then output the keyword with this format: without punctuation, separate  by comma."
-    prompt = f"From each \"{title}\", extract only 4 separate keywords and not duplicate with keywords extracted from other title. Output format: without punctuation, separate by comma."
+    prompt = f"From each \"{title}\", extract only 4 separate single word which are most important to the content and not duplicate with keywords extracted from other title, then output the keyword with this format: without punctuation, separate  by comma."
+    # prompt = f"From each \"{title}\", extract only 4 separate keywords and not duplicate with keywords extracted from other title. Output format: without punctuation, separate by comma."
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
