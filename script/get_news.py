@@ -23,21 +23,31 @@ def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailym
     if response.status_code == 200:
         data_return = response.json()
         data_return['articles'] = list(data_return['articles'])
-
+        
         total_results = data_return.get('totalResults', 0)
         print(f"Total results: {total_results}")
-        
-        # Clean title feature
+
+        # Clean title's char
         clean_articles = []
         special_chars = '-!@#$%^&*()_+{}[]|\\:;"\'<>,.?/~`'
+        
         for i in data_return['articles']:
             title = i['title']
             if not any(char in title for char in special_chars) and title.isascii():
                 clean_articles.append(i)
-        print(type(clean_articles))
+        print(f"Total results after chars cleaning: {len(clean_articles)}")
+        
+        # Filter out titles with less than 5 words
+        qualified_articles = []
+        for x in clean_articles:
+            title = x['title']
+            words = title.split()
+            if len(words) >= 5:
+                qualified_articles.append(x)
+        print(f"Total results after filtering: {len(qualified_articles)}")
         
         # Select four random articles
-        four_random_articles = random.sample(clean_articles, 4)
+        four_random_articles = random.sample(qualified_articles, 4)
 
         return four_random_articles
 
