@@ -31,7 +31,7 @@ df['keywords'] = keywords
 df.to_csv('web/data/main.csv', index=False)
 print(keywords)
 
-# Add timestamp column to main.csv for tracing use
+# Define timestamp column for history.csv for tracing use
 df['timestamp'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 # Save the new lines to history.csv
