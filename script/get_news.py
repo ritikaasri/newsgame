@@ -33,7 +33,7 @@ def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailym
         
         for i in data_return['articles']:
             title = i['title']
-            if not any(char in title for char in special_chars) and title.isascii():
+            if not any(char in title for char in special_chars) and title.isascii() and not any(word in title.lower() for word in ["how", "what", "where", "who", "why"]):
                 clean_articles.append(i)
         print(f"Total results after chars cleaning: {len(clean_articles)}")
         
