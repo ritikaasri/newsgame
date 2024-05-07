@@ -8,7 +8,7 @@ import os
 
 api_key = os.getenv('NEWSAPI_API_KEY')
 
-def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailymail.co.uk, theguardian.com, foxnews.com, indiatimes.com, people.com, timesofindia.com, usatoday.com,thesun.co.uk, the-sun.com, nypost.com, washingtonpost.com, ndtv.com, cnbc.com, apnews.com', 
+def get_news_headlines(domains='bbc.co.uk, bbc.com, nytimes.com, cnn.com, dailymail.co.uk, theguardian.com, foxnews.com, people.com, timesofindia.com, usatoday.com,thesun.co.uk, the-sun.com, nypost.com, washingtonpost.com, ndtv.com, cnbc.com, apnews.com', 
                       language='en', 
                       from_param=(datetime.now()- timedelta(hours = 24)).strftime('%Y-%m-%d'+'T00:00:00'),  
                       to_param=datetime.now().strftime('%Y-%m-%d'+'T06:59:00'),
