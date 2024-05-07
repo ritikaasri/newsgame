@@ -18,7 +18,7 @@ for index, row in df.iterrows():
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
-        max_tokens=20
+        max_tokens=40
     )
     prompt_result = response.choices[0].message.content.strip()
     prompt_result = prompt_result.split(",")
