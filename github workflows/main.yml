@@ -39,13 +39,15 @@ jobs:
         
     - name: Commit news change
       run: |
-        git config --global user.email "leungw3@cardiff.ac.uk"
-        git config --global user.name "LLeung"
+        git config --global user.email "ritikasri.18@gmail.com"
+        git config --global user.name "ritikaasri"
         git add .
-        git commit -m "Update news main.csv"
+        git commit -m "Update news main.csv" || echo "No changes to commit"
     - name: Push news change
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
-        git push
+        git push https://x-access-token:${GH_PAT}@github.com/ritikaasri/newsgame.git
   
     - name: Run OPENAI Python script
       env:
@@ -53,16 +55,18 @@ jobs:
       run: |
         python script/generate_keywords.py
         
-    - name: Commit and push changes
+    - name: Commit keywords change
       run: |
-        git config --global user.email "leungw3@cardiff.ac.uk"
-        git config --global user.name "LLeung"
+        git config --global user.email "ritikasri.18@gmail.com"
+        git config --global user.name "ritikaasri"
         git add .
-        git commit -m "Update keywords main.csv"
+        git commit -m "Update keywords main.csv" || echo "No changes to commit"
 
     - name: Push keywords change
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
-        git push
+        git push https://x-access-token:${GH_PAT}@github.com/ritikaasri/newsgame.git
 
     - name: Create artifact
       uses: actions/upload-artifact@v4
