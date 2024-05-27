@@ -5,8 +5,11 @@ Welcome to What's News, a news-themed game designed to provide both entertainmen
 Project Overview
 
 What's News challenges players to match keywords to their respective news headlines. Here's how it works:
-Keywords and Headlines: The game consists of 16 keywords extracted from four different news headlines.
+
+Keywords and Headlines: The game consists of 16 keywords extracted from four different news headlines. 
+
 Matching Game: Players must match the correct set of keywords to guess the related news headline.
+
 Chances: Each player has four chances to play the game.
 
 Features
@@ -20,22 +23,31 @@ Technologies Used
 Programming Languages:
 
 Python (for backend scripts)
+
 JavaScript (for frontend game logic)
+
 HTML and CSS (for web interface)
 
 APIs:
 
 News API: To fetch the latest news articles.
+
 ChatGPT: To generate keywords from news article titles.
 
 Additional Tools:
+
 CSV Storage: Keywords and corresponding article URLs are stored in CSV format for easy access and management.
+
 GitHub: Deployment and version control.
 
 How to Play
 
 Start the Game: Visit the game's homepage.
+
 View Keywords: Review the 16 keywords presented on the screen.
+
 Guess the Headlines: Match the keywords to the four news headlines.
+
 Submit: After making your guesses, submit your answers.
+
 Chances: Each player has four chances to match all headlines correctly.
